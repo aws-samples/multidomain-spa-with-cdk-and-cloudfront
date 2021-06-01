@@ -17,7 +17,9 @@ export class wildCardStaticApp extends cdk.Stack {
       eg:  cdk deploy -c primaryDomain=exampledomain.com.  If we fail to pass in the value from the 
       command line use exampledomain.com. 
     */
-    const primaryDomain = this.node.tryGetContext('primaryDomain') ? this.node.tryGetContext('primaryDomain') : "exampledomain.com";
+ 
+    const fromCli = this.node.tryGetContext('primaryDomain') 
+    const primaryDomain = fromCli ? fromCli : "exampledomain.com";
 
     /*
       Use the name of a Route53 hosted zone that exists in your account, replace 
@@ -31,6 +33,7 @@ export class wildCardStaticApp extends cdk.Stack {
       bucketName: `wildcard-${primaryDomain}`
     });
 
+    // Create access identity, and grant read access only, we will use this identity in CloudFront
     const originAccessIdentity = new cloudfront.OriginAccessIdentity(this, 'OIA', {
       comment: "Setup access from CloudFront to the bucket ( read )"
     });
