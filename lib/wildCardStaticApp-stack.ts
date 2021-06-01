@@ -18,8 +18,8 @@ export class wildCardStaticApp extends cdk.Stack {
       command line use exampledomain.com. 
     */
  
-    const fromCli = this.node.tryGetContext('primaryDomain') 
-    const primaryDomain = fromCli ? fromCli : "exampledomain.com";
+    const fromCli = this.node.tryGetContext('primaryDomain')
+    const primaryDomain = ( (typeof fromCli) === 'undefined' ) ? "exampledomain.com" : fromCli
 
     /*
       Use the name of a Route53 hosted zone that exists in your account, replace 
