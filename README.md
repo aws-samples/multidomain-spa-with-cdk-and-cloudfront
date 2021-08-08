@@ -2,6 +2,8 @@
 
 This template will deploy a sample html application that listens to incoming requests from any subdomain on the domain specified when the stack is created.
 
+Detailed instructions here:  https://aws.amazon.com/blogs/infrastructure-and-automation/deploy-spa-with-personalized-subdomains-using-aws-cdk/
+
 Infrastructure created:
  - S3 bucket
  - Domain TLS certificate
