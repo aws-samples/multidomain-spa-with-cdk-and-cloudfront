@@ -21,7 +21,7 @@ Run
 
 ```
 cdk bootstrap
-cdk deploy -c domainName={your-domain.name}  
+cdk deploy -c primaryDomain={your-domain.name}  
 ```
 
 ##  Cleanup
